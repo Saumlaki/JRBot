@@ -1,4 +1,5 @@
 .idea
 .venv
+.poetry.lock
 src/__pycache__
 src/.env
