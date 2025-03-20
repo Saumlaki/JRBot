@@ -3,7 +3,7 @@ name = "javarushbot"
 version = "0.1.0"
 description = "Тестовый проект для курсов"
 authors = [
-    {name = "Alex",email = "int_o@mail.ru"}
+    {name = "Alex",email = "into@mail.ru"}
 ]
 readme = "README.md"
 requires-python =  ">=3.9,<4.0"
