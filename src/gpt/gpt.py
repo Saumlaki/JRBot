@@ -4,7 +4,7 @@ from langchain_gigachat.chat_models import GigaChat
 from src.config_reader import  config
 
 
-class gpt:
+class GPT:
     def __init__(self, behavior : str):
         self.giga = GigaChat(credentials=config.credentials.get_secret_value(), verify_ssl_certs = False)
         self.message = [SystemMessage(content=behavior)]

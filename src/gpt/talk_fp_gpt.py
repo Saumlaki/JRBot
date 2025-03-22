@@ -1,4 +1,4 @@
-from src.gpt.gpt import gpt
+from src.gpt.gpt import GPT
 from langchain_core.messages import HumanMessage
 
 class TalkGPT(gpt):
