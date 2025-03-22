@@ -1,7 +1,7 @@
-from src.gpt.gpt import gpt
+from src.gpt.gpt import GPT
 from langchain_core.messages import HumanMessage
 
-class QuizGPT(gpt):
+class QuizGPT(GPT):
     """"Класс отвечает за инициализацию GPT модели, которая может выдавать вопросы квиза.
     """
     def __init__(self):

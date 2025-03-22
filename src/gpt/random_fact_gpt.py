@@ -1,7 +1,7 @@
-from src.gpt.gpt import gpt
+from src.gpt.gpt import GPT
 from langchain_core.messages import HumanMessage
 
-class RandomFactGPT(gpt):
+class RandomFactGPT(GPT):
     """"Класс отвечает за инициализацию GPT модели, которая может выдавать случайные факты.
     """
     def __init__(self):

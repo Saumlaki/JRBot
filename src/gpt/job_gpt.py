@@ -1,7 +1,7 @@
-from src.gpt.gpt import gpt
+from src.gpt.gpt import GPT
 from langchain_core.messages import HumanMessage
 
-class TalkGPT(gpt):
+class TalkGPT(GPT):
     """"Класс отвечает за инициализацию GPT модели, которая поможет с составлением резюме.
     """
     def __init__(self):
