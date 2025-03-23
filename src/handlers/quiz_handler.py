@@ -241,7 +241,8 @@ async def cmd_msg_answer(msg: types.message, data_session_collector: DataSession
         data_session.msg_talk_gpt = await InlineForm(msg=msg,
                                                  main_text=answer_dict["Вопрос"],
                                                  footer_text="",
-                                                 keyboard=keyboard.get_main_keyboard(answer_dict["Ответы"])).answer()
+                                                 keyboard=keyboard.get_main_keyboard(answer_dict["Ответы"]),
+                                                     is_md_txt=False).answer()
 
 
 def get_answer(gpt):
@@ -249,7 +250,6 @@ def get_answer(gpt):
     Добьемся нормального ответа"""
     is_true = False
     answer_dict = None
-    answer_dict_tmp = None
     attempt = 5
 
     while attempt >=0:
