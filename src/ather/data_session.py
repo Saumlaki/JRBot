@@ -1,3 +1,6 @@
+from src.db import db_init
+
+
 class DataSession:
     """"Хранит данные сессии пользователя
     """
@@ -6,6 +9,7 @@ class DataSession:
         self.id_session = id_session
 
         self.clear()
+        self.load_dictionary(self.id_session)
 
     def get_empty_job(self):
         return {"name": "", "prof": "", "salary": "0"}
@@ -21,5 +25,13 @@ class DataSession:
         self.quiz_answers = ""  # Правильный ответ на вопрос квиза
         self.job = self.get_empty_job()  # формирует пустую структуру резюме
 
-        self.dictionary_learn_now = {}  # Содержит словарь слов в текущей сессии к изучению
-        self.dictionary_learn_all = {}  # Содержит словарь слов к изучению
+        self.current_word = None
+
+    def load_dictionary(self, id_session):
+        self.dictionary = db_init.load_dictionary(id_session)
+
+    def save_dictionary_word(self, word):
+        db_init.save_word(word)
+
+    def update_word(self, word):
+        db_init.update_word(word)
