@@ -31,8 +31,8 @@ class InlineForm(AbstractForm):
         text = text.replace(")", "\)")
         text = text.replace("#", "\#")
         text = text.replace("+", "\+")
-        text = text.replace("[", "\+")
-        text = text.replace("]", "\+")
-
+        text = text.replace("[", "\[")
+        text = text.replace("]", "\]")
+  
         return text
 
