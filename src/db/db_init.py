@@ -43,9 +43,9 @@ def save_word(word: Word):
     cursor = connection.cursor()
 
     cursor.execute(f' INSERT INTO dictionary (user_id, text, translation, shows, answers) '
-                   f' SELECT {word.user_id}, {word.text}, {word.translation}, {word.shows}, {word.answers}'
+                   f' SELECT {word.user_id}, \'{word.text}\', \'{word.translation}\', {word.shows}, {word.answers}'
                    f' WHERE NOT EXISTS ('
-                   f' SELECT 1 FROM dictionary WHERE user_id = {word.user_id} AND text = {word.text}'
+                   f' SELECT 1 FROM dictionary WHERE user_id = {word.user_id} AND text = \'{word.text}\''
                    f')')
     connection.commit()
     connection.close()
@@ -55,8 +55,8 @@ def update_word(word: Word):
     cursor = connection.cursor()
 
     cursor.execute(f' UPDATE dictionary'
-                   f' SET   shows = {word.shows}, '
-                   f'       answers = {word.answers} '
+                   f' SET   shows = \'{word.shows}\', '
+                   f'       answers = \'{word.answers}\' '
                    f' WHERE user_id = {word.user_id} AND text = {word.text}')
     connection.commit()
     connection.close()
