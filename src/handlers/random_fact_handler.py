@@ -47,16 +47,16 @@ async def cmd_next(cbq: types.CallbackQuery, data_session_collector: DataSession
     answer = data_session.gpt.get_answer("Следующий факт")
     print(answer)
 
-    await InlineForm(msg=cbq.message,
-                     main_text=data_session.msg_talk_gpt.md_text,
-                     footer_text="",
-                     keyboard=keyboard_collector.get_empty_keyboard(prefix)).edit()
+    # await InlineForm(msg=cbq.message,
+    #                  main_text=data_session.msg_talk_gpt.md_text,
+    #                  footer_text="",
+    #                  keyboard=keyboard_collector.get_empty_keyboard(prefix)).edit()
 
     await InlineForm(msg=cbq.message,
                      main_text=answer,
                      footer_text=f"__Вы узнали фактов: {data_session.random_fact_num}__",
                      keyboard=keyboard_collector.get_main_keyboard(prefix),
-                     is_md_txt=False).answer()
+                     is_md_txt=False).edit()
 
 
 @router.callback_query(F.data.endswith("end"))
